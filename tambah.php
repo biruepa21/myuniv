@@ -78,23 +78,12 @@ if (!isset($_SESSION['login'])) {
                         </div>
                         <div class="mb-3">
                             <label>Jurusan</label>
-                            <select class="form-select" name="jurusan" required>
-                                <option selected disabled>Pilih Jurusan </option>
-                                <option value="Teknik Informasi">Teknik Informasi</option>
-                                <option value="Sistem Informasi">Sistem Informasi</option>
-                                <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
-                                <option value="Ilmu Komputer">Ilmu Komputer</option>
-                                <option value="Sistem Informasi Akuntansi">Sistem Informasi Akuntansi</option>
-                                <option value="Teknologi Komputer">Teknologi Komputer</option>
-                            </select>
+                            <input type="text" class="form-control" name="jurusan" placeholder="Masukkan Jurusan Mahasiswa" required>
                         </div>
+
                         <div class="mb-3">
                             <label>Jenjang</label>
-                            <select class="form-select" name="jenjang" required>
-                                <option selected disabled>Pilih Jenjang Pendidikan</option>
-                                <option value="D3">D3</option>
-                                <option value="S1">S1</option>
-                            </select>
+                            <input type="text" class="form-control" name="jenjang" placeholder="Masukkan Jenjang Mahasiswa" required>
                         </div>
                         <hr>
                         <div class="mb-3">
@@ -115,11 +104,7 @@ if (!isset($_SESSION['login'])) {
                         </div>
                         <div class="mb-3">
                             <label>Jenis Kelamin</label>
-                            <select class="form-select" name="jk" required>
-                                <option selected disabled>Pilih Jenis Kelamin</option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
+                            <input type="text" class="form-control" name="jk" placeholder="Masukkan Jenis Kelamin Mahasiswa" required>
                         </div>
                         <button class="btn btn-success" name="tambah">Tambah Data</button>
                         <a href="index.php" class="btn btn-danger">Kembali</a>
@@ -131,7 +116,7 @@ if (!isset($_SESSION['login'])) {
     <!-- Close Container -->
 
     <?php
-    if(isset($_POST['tambah'])){
+    if (isset($_POST['tambah'])) {
         $nim = $_POST['nim'];
         $nama = $_POST['nama'];
         $kelas = $_POST['kelas'];
@@ -142,44 +127,44 @@ if (!isset($_SESSION['login'])) {
         $alamat = $_POST['alamat'];
         $jk = $_POST['jk'];
 
-        //jurusan
-        $jurusanSelect = $_POST['jurusan'];
-        if ($jurusanSelect = 'Teknik Informasi') {
-            $jurusanSelect= 'Teknik Informasi';
-        }
-        if ($jurusanSelect = 'Sistem Informasi') {
-            $jurusanSelect = 'Sistem Informasi';
-        }
-        if ($jurusanSelect = 'Rekayasa Perangkat Lunak') {
-            $jurusanSelect = 'Rekayasa Perangkat Lunak';
-        }
-        if ($jurusanSelect = 'Ilmu Komputer') {
-            $jurusanSelect = 'Ilmu Komputer';
-        }
-        if ($jurusanSelect = 'Sistem Informasi Akuntansi') {
-            $jurusanSelect = 'Sistem Informasi Akuntansi';
-        }
-        if ($jurusanSelect = 'Teknologi Komputer') {
-            $jurusanSelect = 'Teknologi Komputer';
-        }
+        // //jurusan
+        // $jurusanSelect = $_POST['jurusan'];
+        // if ($jurusanSelect = 'Teknik Informasi') {
+        //     $jurusanSelect = 'Teknik Informasi';
+        // }
+        // if ($jurusanSelect = 'Sistem Informasi') {
+        //     $jurusanSelect = 'Sistem Informasi';
+        // }
+        // if ($jurusanSelect = 'Rekayasa Perangkat Lunak') {
+        //     $jurusanSelect = 'Rekayasa Perangkat Lunak';
+        // }
+        // if ($jurusanSelect = 'Ilmu Komputer') {
+        //     $jurusanSelect = 'Ilmu Komputer';
+        // }
+        // if ($jurusanSelect = 'Sistem Informasi Akuntansi') {
+        //     $jurusanSelect = 'Sistem Informasi Akuntansi';
+        // }
+        // if ($jurusanSelect = 'Teknologi Komputer') {
+        //     $jurusanSelect = 'Teknologi Komputer';
+        // }
 
-        //jenjang
-        $jenjangSelect = $_POST['jenjang'];
-        if ($jenjangSelect = 'D3') {
-            $jenjangSelect = 'D3';
-        }
-        if ($jenjangSelect = 'S1') {
-            $jenjangSelect = 'S1';
-        }
+        // //jenjang
+        // $jenjangSelect = $_POST['jenjang'];
+        // if ($jenjangSelect = 'D3') {
+        //     $jenjangSelect = 'D3';
+        // }
+        // if ($jenjangSelect = 'S1') {
+        //     $jenjangSelect = 'S1';
+        // }
 
-        //jenis kelamin
-        $jkSelect = $_POST['jk'];
-        if ($jkSelect = 'Laki-Laki') {
-            $jkSelect = 'Laki-Laki';
-        }
-        if ($jkSelect = 'Perempuan') {
-            $jkSelect = 'Perempuan';
-        }
+        // //jenis kelamin
+        // $jkSelect = $_POST['jk'];
+        // if ($jkSelect = 'Laki-Laki') {
+        //     $jkSelect = 'Laki-Laki';
+        // }
+        // if ($jkSelect = 'Perempuan') {
+        //     $jkSelect = 'Perempuan';
+        // }
 
         $sqlGet = "SELECT * FROM mahasiswa WHERE nim='$nim'";
         $queryGet = mysqli_query($koneksi, $sqlGet);
@@ -189,7 +174,7 @@ if (!isset($_SESSION['login'])) {
 
         $queryInsert =  mysqli_query($koneksi, $sqlInsert);
 
-        if(isset($sqlInsert) && $cek <= 0) {
+        if (isset($sqlInsert) && $cek <= 0) {
             echo "
             <div class='alert alert-success'>Data berhasil ditambahkan!<a href='index.php'>Lihat Data</a></div>
             ";

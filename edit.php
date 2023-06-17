@@ -2,7 +2,7 @@
 include "fungsi.php";
 
 $nim = $_GET['nim'];
-$sqlGet ="SELECT * FROM mahasiswa WHERE nim='$nim'";
+$sqlGet = "SELECT * FROM mahasiswa WHERE nim='$nim'";
 $queryGet = mysqli_query($koneksi, $sqlGet);
 $data = mysqli_fetch_assoc($queryGet);
 
@@ -76,23 +76,11 @@ $data = mysqli_fetch_assoc($queryGet);
                         </div>
                         <div class="mb-3">
                             <label>Jurusan</label>
-                            <select class="form-select" name="jurusan" required>
-                                <option selected disabled><?php echo $data['jurusan']; ?></option>
-                                <option value="Teknik Informasi">Teknik Informasi</option>
-                                <option value="Sistem Informasi">Sistem Informasi</option>
-                                <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
-                                <option value="Ilmu Komputer">Ilmu Komputer</option>
-                                <option value="Sistem Informasi Akuntansi">Sistem Informasi Akuntansi</option>
-                                <option value="Teknologi Komputer">Teknologi Komputer</option>
-                            </select>
+                            <input type="text" class="form-control" name="jurusan" value="<?php echo $data['jurusan']; ?>" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
                             <label>Jenjang</label>
-                            <select class="form-select" name="jenjang" required>
-                                <option selected disabled><?php echo $data['jenjang']; ?></option>
-                                <option value="D3">D3</option>
-                                <option value="S1">S1</option>
-                            </select>
+                            <input type="text" class="form-control" name="jenjang" value="<?php echo $data['jenjang']; ?>" autocomplete="off" required>
                         </div>
                         <hr>
                         <div class="mb-3">
@@ -113,11 +101,7 @@ $data = mysqli_fetch_assoc($queryGet);
                         </div>
                         <div class="mb-3">
                             <label>Jenis Kelamin</label>
-                            <select class="form-select" name="jk" required>
-                                <option selected disabled><?php echo $data['jk']; ?></option>
-                                <option value="Laki-Laki">Laki-Laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
+                            <input type="text" class="form-control" name="jk" value="<?php echo $data['jk']; ?>" autocomplete="off" required>
                         </div>
                         <button class="btn btn-success" name="edit" type="submit">Edit Data</button>
                         <a href="index.php" class="btn btn-danger">Kembali</a>
@@ -130,60 +114,59 @@ $data = mysqli_fetch_assoc($queryGet);
 
 
     <?php
-    if (isset($_POST['tambah'])) {
+    if (isset($_POST['edit'])) {
         $nim = $_POST['nim'];
         $nama = $_POST['nama'];
         $kelas = $_POST['kelas'];
-        // $jurusan = $_POST['jurusan'];
-        // $jenjang = $_POST['jenjang'];
+        $jurusan = $_POST['jurusan'];
+        $jenjang = $_POST['jenjang'];
         $tmp = $_POST['tmp'];
         $ttl = $_POST['ttl'];
         $alamat = $_POST['alamat'];
-        // $jk = $_POST['jk'];
+        $jk = $_POST['jk'];
 
-        //jurusan
-        $jurusanSelect = $_POST['jurusan'];
-        if ($jurusanSelect = 'Teknik Informasi') {
-            $jurusanSelect = 'Teknik Informasi';
-        }
-        if ($jurusanSelect = 'Sistem Informasi') {
-            $jurusanSelect = 'Sistem Informasi';
-        }
-        if ($jurusanSelect = 'Rekayasa Perangkat Lunak') {
-            $jurusanSelect = 'Rekayasa Perangkat Lunak';
-        }
-        if ($jurusanSelect = 'Ilmu Komputer') {
-            $jurusanSelect = 'Ilmu Komputer';
-        }
-        if ($jurusanSelect = 'Sistem Informasi Akuntansi') {
-            $jurusanSelect = 'Sistem Informasi Akuntansi';
-        }
-        if ($jurusanSelect = 'Teknologi Komputer') {
-            $jurusanSelect = 'Teknologi Komputer';
-        }
+        // //jurusan
+        // $jurusanSelect = $_POST['jurusan'];
+        // if ($jurusanSelect = 'Teknik Informasi') {
+        //     $jurusanSelect = 'Teknik Informasi';
+        // }
+        // if ($jurusanSelect = 'Sistem Informasi') {
+        //     $jurusanSelect = 'Sistem Informasi';
+        // }
+        // if ($jurusanSelect = 'Rekayasa Perangkat Lunak') {
+        //     $jurusanSelect = 'Rekayasa Perangkat Lunak';
+        // }
+        // if ($jurusanSelect = 'Ilmu Komputer') {
+        //     $jurusanSelect = 'Ilmu Komputer';
+        // }
+        // if ($jurusanSelect = 'Sistem Informasi Akuntansi') {
+        //     $jurusanSelect = 'Sistem Informasi Akuntansi';
+        // }
+        // if ($jurusanSelect = 'Teknologi Komputer') {
+        //     $jurusanSelect = 'Teknologi Komputer';
+        // }
 
-        //jenjang
-        $jenjangSelect = $_POST['jenjang'];
-        if ($jenjangSelect = 'D3') {
-            $jenjangSelect = 'D3';
-        }
-        if ($jenjangSelect = 'S1') {
-            $jenjangSelect = 'S1';
-        }
+        // //jenjang
+        // $jenjangSelect = $_POST['jenjang'];
+        // if ($jenjangSelect = 'D3') {
+        //     $jenjangSelect = 'D3';
+        // }
+        // if ($jenjangSelect = 'S1') {
+        //     $jenjangSelect = 'S1';
+        // }
 
-        //jenis kelamin
-        $jkSelect = $_POST['jk'];
-        if ($jkSelect = 'Laki-Laki') {
-            $jkSelect = 'Laki-Laki';
-        }
-        if ($jkSelect = 'Perempuan') {
-            $jkSelect = 'Perempuan';
-        }
+        // //jenis kelamin
+        // $jkSelect = $_POST['jk'];
+        // if ($jkSelect = 'Laki-Laki') {
+        //     $jkSelect = 'Laki-Laki';
+        // }
+        // if ($jkSelect = 'Perempuan') {
+        //     $jkSelect = 'Perempuan';
+        // }
 
-        $sqlUpdate = "UPDATE mahasiswa SET nama='$nama', '$kelas', '$jurusan', '$jenjang', '$tmp', '$ttl', '$alamat', '$jk' WHERE nim='$nim'";
+        $sqlUpdate = "UPDATE mahasiswa SET nama='$nama', kelas='$kelas', jurusan='$jurusan', jenjang='$jenjang', tmp='$tmp', ttl='$ttl', alamat='$alamat', jk='$jk' WHERE nim='$nim'";
         $queryUpdate = mysqli_query($koneksi, $sqlUpdate);
 
-        header("location: index.php");
     }
     ?>
 
