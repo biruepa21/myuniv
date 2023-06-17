@@ -118,7 +118,7 @@ if (!isset($_SESSION['login'])) {
         </div>
     </div>
     <!-- Close Container -->
-div
+
     <!-- Footer -->
     <footer class="bg-dark text-white container-fluid">
         <div class="col">

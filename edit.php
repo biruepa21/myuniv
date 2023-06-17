@@ -166,7 +166,18 @@ $data = mysqli_fetch_assoc($queryGet);
 
         $sqlUpdate = "UPDATE mahasiswa SET nama='$nama', kelas='$kelas', jurusan='$jurusan', jenjang='$jenjang', tmp='$tmp', ttl='$ttl', alamat='$alamat', jk='$jk' WHERE nim='$nim'";
         $queryUpdate = mysqli_query($koneksi, $sqlUpdate);
+        // $cek = mysqli_num_rows($queryUpdate);
 
+        if (isset($sqlUpdate)) {
+            echo "
+            <div class='alert alert-success'>Data berhasil diubah!<a href='index.php'>Lihat Data</a></div>
+            ";
+        } elseif ($sqlUpdate > 0) {
+            echo "
+            <div class='alert alert-danger'>Data tidak berhasil diubah!</div>
+            ";
+        }
+        // header("location: 'index.php'");
     }
     ?>
 
