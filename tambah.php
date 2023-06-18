@@ -127,45 +127,6 @@ if (!isset($_SESSION['login'])) {
         $alamat = $_POST['alamat'];
         $jk = $_POST['jk'];
 
-        // //jurusan
-        // $jurusanSelect = $_POST['jurusan'];
-        // if ($jurusanSelect = 'Teknik Informasi') {
-        //     $jurusanSelect = 'Teknik Informasi';
-        // }
-        // if ($jurusanSelect = 'Sistem Informasi') {
-        //     $jurusanSelect = 'Sistem Informasi';
-        // }
-        // if ($jurusanSelect = 'Rekayasa Perangkat Lunak') {
-        //     $jurusanSelect = 'Rekayasa Perangkat Lunak';
-        // }
-        // if ($jurusanSelect = 'Ilmu Komputer') {
-        //     $jurusanSelect = 'Ilmu Komputer';
-        // }
-        // if ($jurusanSelect = 'Sistem Informasi Akuntansi') {
-        //     $jurusanSelect = 'Sistem Informasi Akuntansi';
-        // }
-        // if ($jurusanSelect = 'Teknologi Komputer') {
-        //     $jurusanSelect = 'Teknologi Komputer';
-        // }
-
-        // //jenjang
-        // $jenjangSelect = $_POST['jenjang'];
-        // if ($jenjangSelect = 'D3') {
-        //     $jenjangSelect = 'D3';
-        // }
-        // if ($jenjangSelect = 'S1') {
-        //     $jenjangSelect = 'S1';
-        // }
-
-        // //jenis kelamin
-        // $jkSelect = $_POST['jk'];
-        // if ($jkSelect = 'Laki-Laki') {
-        //     $jkSelect = 'Laki-Laki';
-        // }
-        // if ($jkSelect = 'Perempuan') {
-        //     $jkSelect = 'Perempuan';
-        // }
-
         $sqlGet = "SELECT * FROM mahasiswa WHERE nim='$nim'";
         $queryGet = mysqli_query($koneksi, $sqlGet);
         $cek = mysqli_num_rows($queryGet);
